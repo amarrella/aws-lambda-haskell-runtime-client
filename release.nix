@@ -1,7 +1,9 @@
 let
+  compiler = "ghc865";
+
   config = {
     packageOverrides = pkgs: rec {
-      haskellPackages = pkgs.haskellPackages.override {
+      haskellPackages = pkgs.haskell.packages.${compiler}.override {
         overrides = haskellPackagesNew: haskellPackagesOld: rec {
           dhall =
             haskellPackagesNew.callPackage ./nix/dhall.nix { };
@@ -13,7 +15,6 @@ let
   };
 
   pkgs = import <nixpkgs> { inherit config; };
-  compiler = "ghc865";
 
 in pkgs.haskell.lib.justStaticExecutables (
     pkgs.haskell.packages.${compiler}.callPackage ./aws-lambda-haskell-runtime-client.nix {}
