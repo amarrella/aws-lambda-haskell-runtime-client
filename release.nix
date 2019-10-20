@@ -12,9 +12,9 @@ let
     };
   };
 
-  pkgs = import <nixpkgs> { inherit config; system = "x86_64-linux"; };
-  
+  pkgs = import <nixpkgs> { inherit config; };
+  compiler = "ghc865";
 
 in pkgs.haskell.lib.justStaticExecutables (
-    pkgs.haskellPackages.callPackage ./aws-lambda-haskell-runtime-client.nix {}
+    pkgs.haskell.packages.${compiler}.callPackage ./aws-lambda-haskell-runtime-client.nix {}
   )
