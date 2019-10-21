@@ -4,9 +4,9 @@ let
       haskellPackages = pkgs.haskellPackages.override {
         overrides = haskellPackagesNew: haskellPackagesOld: rec {
           dhall =
-            haskellPackagesNew.callPackage ./nix/dhall.nix { };
+            pkgs.haskell.lib.dontCheck (haskellPackagesNew.callPackage ./nix/dhall.nix { });
           generic-random = 
-            haskellPackagesNew.callPackage ./nix/generic-random.nix { };
+            pkgs.haskell.lib.dontCheck (haskellPackagesNew.callPackage ./nix/generic-random.nix { });
         };
       };
     };
