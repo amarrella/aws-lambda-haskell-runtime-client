@@ -12,7 +12,7 @@ let
     };
   };
 
-  pkgs = import <nixpkgs> { inherit config; };
+  pkgs = import <nixpkgs> { inherit config; system="x86_64-linux"; };
 
 in pkgs.haskell.lib.justStaticExecutables (
     pkgs.haskellPackages.callPackage ./aws-lambda-haskell-runtime-client.nix {}
