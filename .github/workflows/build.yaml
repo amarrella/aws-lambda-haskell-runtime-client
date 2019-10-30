@@ -11,4 +11,3 @@ jobs:
       with:
         name: amarrella
         signingKey: '${{ secrets.CACHIX_SIGNING_KEY }}'
-        file: release.nix
