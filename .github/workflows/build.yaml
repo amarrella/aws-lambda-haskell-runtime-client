@@ -7,6 +7,12 @@ jobs:
     steps:
     - uses: actions/checkout@v1
     - uses: cachix/install-nix-action@v3
+    - name: Install cachix
+      run: |
+        nix-env -iA cachix -f https://cachix.org/api/v1/install
+    - name: Use cachix nix-tools cache
+      run: |
+        cachix use nix-tools
     - uses: cachix/cachix-action@v2
       with:
         name: amarrella
