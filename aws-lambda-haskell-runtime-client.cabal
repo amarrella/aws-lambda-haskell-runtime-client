@@ -203,6 +203,7 @@ test-suite aws-lambda-haskell-runtime-client-test
   hs-source-dirs:
       test
   ghc-options: -Wall -threaded -O2 -rtsopts -with-rtsopts=-N
+  build-tool-depends: hspec-discover:hspec-discover
   build-depends:
       HUnit >=1.6.0.0 && <1.7
     , aeson >=1.4.2 && <1.5
