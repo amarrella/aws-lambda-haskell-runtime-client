@@ -23,4 +23,4 @@ cabal.sandbox.config
 dist
 dist-*
 stack.yaml.lock
-result/
+result
