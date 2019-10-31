@@ -16,7 +16,7 @@ jobs:
     - name: Build
       run: |
         cachix push --watch-store amarrella &
-        nix build -L -f . aws-lambda-haskell-runtime-client.components.tests
+        nix build -j auto -L -f . aws-lambda-haskell-runtime-client.components.tests
     - uses: cachix/cachix-action@v2
       with:
         name: amarrella
