@@ -15,8 +15,11 @@ jobs:
         cachix use nix-tools
     - name: Build
       run: |
+        cachix use amarrella
         cachix push --watch-store amarrella &
         nix build -j auto -L -f . aws-lambda-haskell-runtime-client.components.tests
+      env:
+        CACHIX_SIGNING_KEY: '${{ secrets.CACHIX_SIGNING_KEY }}'
     - uses: cachix/cachix-action@v2
       with:
         name: amarrella
